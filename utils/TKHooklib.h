@@ -26,8 +26,8 @@ void TK_UnHookImportFunction(HookStruct *pHookStruct);
 **  Return: HOOK_SUCCESS or HOOK_FAILED
 **	Example: 	Hook libfoo.so Import Function: puts
 **	HookStruct HookPara;
-**  strncpy(&HookPara.SOName, "libfoo.so", strlen("libfoo.so"));
-**	strncpy(&HookPara.FunctionName, "puts", strlen("puts"));
+**  strncpy(HookPara.SOName, "libfoo.so", strlen("libfoo.so"));
+**	strncpy(HookPara.FunctionName, "puts", strlen("puts"));
 **	HookPara.NewFunc = myputs;
 **	TK_HookImportFunction(&HookPara);
 */
@@ -37,8 +37,8 @@ int TK_HookImportFunction(HookStruct *pHookStruct);
 **  Return: HOOK_SUCCESS or HOOK_FAILED
 **	Example: 	Hook libc.so Export Function: puts
 **	HookStruct HookPara;
-**  strncpy(&HookPara.SOName, "libc.so", strlen("libc.so"));
-**	strncpy(&HookPara.FunctionName, "puts", strlen("puts"));
+**  strncpy(HookPara.SOName, "libc.so", strlen("libc.so"));
+**	strncpy(HookPara.FunctionName, "puts", strlen("puts"));
 **	HookPara.NewFunc = myputs;
 **	TK_HookExportFunction(&HookPara);
 */
