@@ -49,6 +49,20 @@ int TK_HookExportFunction(HookStruct *pHookStruct);
 **	Example: 	Inline Hook libc.so Function: puts
 **	void* OldFunc = NULL;
 **	TK_InlineHookFunction(puts, myputs, &OldFunc);
+**	----------------------------------------------
+** 	For the new implementation of HOOK Bridge, I suggest you add some lock to enhance the stability.
+**		
+**		
+		int myputs(const char *string){
+			// Do sth before calling ori-function
+
+			pthread_mutex_lock(&hook_mutex);
+			puts(string);
+			pthread_mutex_unlock(&hook_mutex);
+			
+			// Do sth after calling ori-function
+		}
+**	
 */
 int TK_InlineHookFunction(void *TargetFunc, void *NewFunc, void** OldFunc);
 
